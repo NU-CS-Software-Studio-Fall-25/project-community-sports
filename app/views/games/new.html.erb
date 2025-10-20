@@ -1,0 +1,46 @@
+<h1 class="text-center my-4">Create a New Pickleball Game</h1>
+
+<div class="container">
+  <%= form_with model: @game, local: true do |form| %>
+    <!-- Date and Time on the same row -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <%= form.label :date, class: "form-label" %>
+        <%= form.date_field :date, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= form.label :time, class: "form-label" %>
+        <%= form.time_field :time, class: "form-control" %>
+      </div>
+    </div>
+
+    <!-- Skill Level -->
+    <div class="mb-3">
+      <%= form.label :skill_level, class: "form-label" %>
+      <%= form.select :skill_level, ["Beginner", "Intermediate", "Advanced"], {}, class: "form-select" %>
+    </div>
+
+    <!-- Location -->
+    <div class="mb-3">
+      <%= form.label :location, class: "form-label" %>
+      <%= form.text_field :location, class: "form-control", placeholder: "Enter court or address" %>
+    </div>
+
+    <!-- Game Format (Singles/Doubles) -->
+    <div class="mb-3">
+      <%= form.label :doubles, "Game Format", class: "form-label" %>
+      <%= form.select :doubles, [["Singles", false], ["Doubles", true]], {}, class: "form-select" %>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="mb-3">
+      <%= form.label :contact_info, "Contact Info (Email or Phone)", class: "form-label" %>
+      <%= form.text_field :contact_info, class: "form-control", placeholder: "Email or phone number" %>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <%= form.submit "Create Game", class: "btn btn-primary px-5" %>
+    </div>
+  <% end %>
+</div>

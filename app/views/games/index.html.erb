@@ -1,0 +1,28 @@
+<h1 class="mb-4 text-center">All Games</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Skill Level</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @games.each do |game| %>
+        <tr>
+          <td><%= game.date %></td>
+          <td><%= game.time.strftime("%I:%M %p") if game.time %></td>
+          <td><%= game.skill_level %></td>
+          <td><%= game.location %></td>
+          <td><%= game.doubles ? "Doubles" : "Singles" %></td>
+          <td><%= game.contact_info %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

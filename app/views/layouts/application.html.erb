@@ -1,27 +1,36 @@
+<!-- this is a wrapper/frame around EVERY page
+so if i put nav bar here, then i don't need
+to include nav bar in every html page -->
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Pickleballchallenge" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Pickleball Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= yield :head %>
+  <!-- Your app's CSS -->
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+  <!-- Optional page-specific CSS -->
+  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-  </head>
+  <!-- Your app's JS -->
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
 
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+
+    <main class="container">
+      <%= yield %> <!-- Page-specific content goes here -->
+    </main>
+
+    <footer style="text-align:center; margin-top: 2em;">
+      <p>&copy; 2025 Pickleball Challenge</p>
+    </footer>
   </body>
 </html>

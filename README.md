@@ -68,3 +68,25 @@ Minimum Valuable Product
         - login ability
         - save data to the backend
         - (maybe) upload data in an organized format to the website
+
+SCRUM Meeting 2
+- What did you do yesterday?
+- What are you working on today?
+Getting the login working and the user model. Getting github copilot, and
+uploading the website to Heroku
+- What are the impediments to accomplishing your plans?
+I need to remove the sensitive information from my files (like passwords).
+
+TODO:
+- Upload website to Heroku (remove sensitive information)
+
+
+Project Analysis
+- All tables, attributes (and types)
+Table 1 - Games table (see games model)
+Table 2 - User table (username, password, games made ids, games joined ids)
+- Identify primary and foreign keys
+We need to create unique identifiers for each item in a table, and an identifier
+for each individual table
+- Mark relationships
+Users create games. users join games
